@@ -2,9 +2,9 @@
 import React, { useState } from "react";
 import { UserPrediction, useUserPredictions } from "@/app/hooks/useBet";
 import { Button } from "@/components/ui/button";
-import { useContract } from "@starknet-react/core";
+import { useContract } from "@stellar-react/core";
 import abi from "@/app/abis/abi";
-import { STAKCAST_CONTRACT_ADDRESS } from "@/app/components/utils/constants";
+import { KAIROS_CONTRACT_ADDRESS } from "@/app/components/utils/constants";
 import { toast } from "react-toastify";
 import { formatAmount } from "@/app/utils/utils";
 import { Table } from "@/app/components/shared/table";
@@ -34,7 +34,7 @@ const UserPredictionsSection = () => {
   const isConnected = useIsConnected();
   const { contract } = useContract({
     abi,
-    address: STAKCAST_CONTRACT_ADDRESS as "0x",
+    address: KAIROS_CONTRACT_ADDRESS as "0x",
   });
 
   const handleCollectWinnings = async (prediction: UserPrediction) => {

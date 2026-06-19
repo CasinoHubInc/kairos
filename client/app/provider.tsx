@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
-import { useConnect } from "@starknet-react/core";
+import { useConnect } from "@stellar-react/core";
 import { useAppContext } from "./context/appContext";
 import { SessionAccountInterface } from "@argent/invisible-sdk";
 

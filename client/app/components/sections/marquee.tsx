@@ -4,8 +4,8 @@ const MarqueeSection = () => {
   const messages = [
     "Stakcast: Insight is alpha",
     "Stakcast is now live on testnet",
-    "Stakcast: Powered by starknet",
-    "For partnerships and collaborations, reach contact@stakcast.com"
+    "Stakcast: Powered by stellar",
+    "For partnerships and collaborations, reach contact@kairos.com"
   ];
 
 

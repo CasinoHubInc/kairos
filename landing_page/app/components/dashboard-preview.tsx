@@ -58,7 +58,7 @@ export function DashboardPreview() {
               <div className="flex items-center gap-2">
                 <div className="h-8 w-8 rounded-lg bg-gradient-to-r from-emerald-500 to-blue-500"></div>
                 <span className="font-semibold">
-                  StakCast Dashboard Preview
+                  Kairos Dashboard Preview
                 </span>
               </div>
               <div className="flex items-center gap-2">

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { useContract } from "@starknet-react/core";
+import { useContract } from "@stellar-react/core";
 import abi from "@/app/abis/abi";
 import { Market } from "../types";
-import { STAKCAST_CONTRACT_ADDRESS } from "../components/utils/constants";
+import { KAIROS_CONTRACT_ADDRESS } from "../components/utils/constants";
 
 type PredictionCategory = "crypto" | "sports" | "all";
 
@@ -28,7 +28,7 @@ export const useMarketData = (
 
   const { contract } = useContract({
     abi,
-    address: STAKCAST_CONTRACT_ADDRESS as "0x",
+    address: KAIROS_CONTRACT_ADDRESS as "0x",
   });
 
   const [predictions, setPredictions] = useState<Market[] | null>(null);

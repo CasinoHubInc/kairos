@@ -3,7 +3,7 @@
 import type React from "react";
 import { useState } from "react";
 import { TrendingUp, ArrowLeft, DollarSign, Target, Award } from "lucide-react";
-import { useAccount} from "@starknet-react/core";
+import { useAccount} from "@stellar-react/core";
 
 import { StatsCard } from "./(cards)/statsCard";
 import { Chart } from "./(components)/chart";

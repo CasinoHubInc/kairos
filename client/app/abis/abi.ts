@@ -1,9 +1,9 @@
-import { type Abi } from "starknet";
+import { type Abi } from "stellar";
 export default [
   {
     name: "PredictionHubImpl",
     type: "impl",
-    interface_name: "stakcast::interface::IPredictionHub",
+    interface_name: "kairos::interface::IPredictionHub",
   },
   {
     name: "core::byte_array::ByteArray",
@@ -52,7 +52,7 @@ export default [
     ],
   },
   {
-    name: "stakcast::interface::Choice",
+    name: "kairos::interface::Choice",
     type: "struct",
     members: [
       {
@@ -66,12 +66,12 @@ export default [
     ],
   },
   {
-    name: "core::option::Option::<stakcast::interface::Choice>",
+    name: "core::option::Option::<kairos::interface::Choice>",
     type: "enum",
     variants: [
       {
         name: "Some",
-        type: "stakcast::interface::Choice",
+        type: "kairos::interface::Choice",
       },
       {
         name: "None",
@@ -80,7 +80,7 @@ export default [
     ],
   },
   {
-    name: "stakcast::interface::PredictionMarket",
+    name: "kairos::interface::PredictionMarket",
     type: "struct",
     members: [
       {
@@ -97,7 +97,7 @@ export default [
       },
       {
         name: "choices",
-        type: "(stakcast::interface::Choice, stakcast::interface::Choice)",
+        type: "(kairos::interface::Choice, kairos::interface::Choice)",
       },
       {
         name: "category",
@@ -121,7 +121,7 @@ export default [
       },
       {
         name: "winning_choice",
-        type: "core::option::Option::<stakcast::interface::Choice>",
+        type: "core::option::Option::<kairos::interface::Choice>",
       },
       {
         name: "total_pool",
@@ -130,7 +130,7 @@ export default [
     ],
   },
   {
-    name: "stakcast::interface::CryptoPrediction",
+    name: "kairos::interface::CryptoPrediction",
     type: "struct",
     members: [
       {
@@ -147,7 +147,7 @@ export default [
       },
       {
         name: "choices",
-        type: "(stakcast::interface::Choice, stakcast::interface::Choice)",
+        type: "(kairos::interface::Choice, kairos::interface::Choice)",
       },
       {
         name: "category",
@@ -171,7 +171,7 @@ export default [
       },
       {
         name: "winning_choice",
-        type: "core::option::Option::<stakcast::interface::Choice>",
+        type: "core::option::Option::<kairos::interface::Choice>",
       },
       {
         name: "total_pool",
@@ -192,7 +192,7 @@ export default [
     ],
   },
   {
-    name: "stakcast::interface::SportsPrediction",
+    name: "kairos::interface::SportsPrediction",
     type: "struct",
     members: [
       {
@@ -209,7 +209,7 @@ export default [
       },
       {
         name: "choices",
-        type: "(stakcast::interface::Choice, stakcast::interface::Choice)",
+        type: "(kairos::interface::Choice, kairos::interface::Choice)",
       },
       {
         name: "category",
@@ -233,7 +233,7 @@ export default [
       },
       {
         name: "winning_choice",
-        type: "core::option::Option::<stakcast::interface::Choice>",
+        type: "core::option::Option::<kairos::interface::Choice>",
       },
       {
         name: "total_pool",
@@ -250,7 +250,7 @@ export default [
     ],
   },
   {
-    name: "stakcast::interface::UserStake",
+    name: "kairos::interface::UserStake",
     type: "struct",
     members: [
       {
@@ -264,21 +264,21 @@ export default [
     ],
   },
   {
-    name: "stakcast::interface::UserBet",
+    name: "kairos::interface::UserBet",
     type: "struct",
     members: [
       {
         name: "choice",
-        type: "stakcast::interface::Choice",
+        type: "kairos::interface::Choice",
       },
       {
         name: "stake",
-        type: "stakcast::interface::UserStake",
+        type: "kairos::interface::UserStake",
       },
     ],
   },
   {
-    name: "stakcast::interface::IPredictionHub",
+    name: "kairos::interface::IPredictionHub",
     type: "interface",
     items: [
       {
@@ -419,7 +419,7 @@ export default [
         ],
         outputs: [
           {
-            type: "stakcast::interface::PredictionMarket",
+            type: "kairos::interface::PredictionMarket",
           },
         ],
         state_mutability: "view",
@@ -430,7 +430,7 @@ export default [
         inputs: [],
         outputs: [
           {
-            type: "core::array::Array::<stakcast::interface::PredictionMarket>",
+            type: "core::array::Array::<kairos::interface::PredictionMarket>",
           },
         ],
         state_mutability: "view",
@@ -446,7 +446,7 @@ export default [
         ],
         outputs: [
           {
-            type: "stakcast::interface::CryptoPrediction",
+            type: "kairos::interface::CryptoPrediction",
           },
         ],
         state_mutability: "view",
@@ -457,7 +457,7 @@ export default [
         inputs: [],
         outputs: [
           {
-            type: "core::array::Array::<stakcast::interface::CryptoPrediction>",
+            type: "core::array::Array::<kairos::interface::CryptoPrediction>",
           },
         ],
         state_mutability: "view",
@@ -473,7 +473,7 @@ export default [
         ],
         outputs: [
           {
-            type: "stakcast::interface::SportsPrediction",
+            type: "kairos::interface::SportsPrediction",
           },
         ],
         state_mutability: "view",
@@ -484,7 +484,7 @@ export default [
         inputs: [],
         outputs: [
           {
-            type: "core::array::Array::<stakcast::interface::SportsPrediction>",
+            type: "core::array::Array::<kairos::interface::SportsPrediction>",
           },
         ],
         state_mutability: "view",
@@ -551,7 +551,7 @@ export default [
         inputs: [
           {
             name: "user",
-            type: "core::starknet::contract_address::ContractAddress",
+            type: "core::stellar::contract_address::ContractAddress",
           },
           {
             name: "market_id",
@@ -575,7 +575,7 @@ export default [
         inputs: [
           {
             name: "user",
-            type: "core::starknet::contract_address::ContractAddress",
+            type: "core::stellar::contract_address::ContractAddress",
           },
           {
             name: "market_id",
@@ -592,7 +592,7 @@ export default [
         ],
         outputs: [
           {
-            type: "stakcast::interface::UserBet",
+            type: "kairos::interface::UserBet",
           },
         ],
         state_mutability: "view",
@@ -603,7 +603,7 @@ export default [
         inputs: [],
         outputs: [
           {
-            type: "core::starknet::contract_address::ContractAddress",
+            type: "core::stellar::contract_address::ContractAddress",
           },
         ],
         state_mutability: "view",
@@ -775,7 +775,7 @@ export default [
         inputs: [
           {
             name: "user",
-            type: "core::starknet::contract_address::ContractAddress",
+            type: "core::stellar::contract_address::ContractAddress",
           },
         ],
         outputs: [
@@ -791,12 +791,12 @@ export default [
         inputs: [
           {
             name: "user",
-            type: "core::starknet::contract_address::ContractAddress",
+            type: "core::stellar::contract_address::ContractAddress",
           },
         ],
         outputs: [
           {
-            type: "core::array::Array::<stakcast::interface::PredictionMarket>",
+            type: "core::array::Array::<kairos::interface::PredictionMarket>",
           },
         ],
         state_mutability: "view",
@@ -807,12 +807,12 @@ export default [
         inputs: [
           {
             name: "user",
-            type: "core::starknet::contract_address::ContractAddress",
+            type: "core::stellar::contract_address::ContractAddress",
           },
         ],
         outputs: [
           {
-            type: "core::array::Array::<stakcast::interface::CryptoPrediction>",
+            type: "core::array::Array::<kairos::interface::CryptoPrediction>",
           },
         ],
         state_mutability: "view",
@@ -823,12 +823,12 @@ export default [
         inputs: [
           {
             name: "user",
-            type: "core::starknet::contract_address::ContractAddress",
+            type: "core::stellar::contract_address::ContractAddress",
           },
         ],
         outputs: [
           {
-            type: "core::array::Array::<stakcast::interface::SportsPrediction>",
+            type: "core::array::Array::<kairos::interface::SportsPrediction>",
           },
         ],
         state_mutability: "view",
@@ -839,7 +839,7 @@ export default [
         inputs: [],
         outputs: [
           {
-            type: "core::starknet::contract_address::ContractAddress",
+            type: "core::stellar::contract_address::ContractAddress",
           },
         ],
         state_mutability: "view",
@@ -850,7 +850,7 @@ export default [
         inputs: [],
         outputs: [
           {
-            type: "core::starknet::contract_address::ContractAddress",
+            type: "core::stellar::contract_address::ContractAddress",
           },
         ],
         state_mutability: "view",
@@ -861,7 +861,7 @@ export default [
         inputs: [
           {
             name: "recipient",
-            type: "core::starknet::contract_address::ContractAddress",
+            type: "core::stellar::contract_address::ContractAddress",
           },
         ],
         outputs: [],
@@ -889,7 +889,7 @@ export default [
         inputs: [
           {
             name: "moderator",
-            type: "core::starknet::contract_address::ContractAddress",
+            type: "core::stellar::contract_address::ContractAddress",
           },
         ],
         outputs: [],
@@ -908,7 +908,7 @@ export default [
         inputs: [
           {
             name: "impl_hash",
-            type: "core::starknet::class_hash::ClassHash",
+            type: "core::stellar::class_hash::ClassHash",
           },
         ],
         outputs: [],
@@ -989,7 +989,7 @@ export default [
         ],
         outputs: [
           {
-            type: "core::starknet::contract_address::ContractAddress",
+            type: "core::stellar::contract_address::ContractAddress",
           },
         ],
         state_mutability: "view",
@@ -1005,7 +1005,7 @@ export default [
         ],
         outputs: [
           {
-            type: "core::starknet::contract_address::ContractAddress",
+            type: "core::stellar::contract_address::ContractAddress",
           },
         ],
         state_mutability: "view",
@@ -1031,10 +1031,10 @@ export default [
   {
     name: "AdditionalAdminImpl",
     type: "impl",
-    interface_name: "stakcast::admin_interface::IAdditionalAdmin",
+    interface_name: "kairos::admin_interface::IAdditionalAdmin",
   },
   {
-    name: "stakcast::admin_interface::IAdditionalAdmin",
+    name: "kairos::admin_interface::IAdditionalAdmin",
     type: "interface",
     items: [
       {
@@ -1043,7 +1043,7 @@ export default [
         inputs: [
           {
             name: "moderator",
-            type: "core::starknet::contract_address::ContractAddress",
+            type: "core::stellar::contract_address::ContractAddress",
           },
         ],
         outputs: [],
@@ -1055,7 +1055,7 @@ export default [
         inputs: [
           {
             name: "address",
-            type: "core::starknet::contract_address::ContractAddress",
+            type: "core::stellar::contract_address::ContractAddress",
           },
         ],
         outputs: [
@@ -1252,7 +1252,7 @@ export default [
         inputs: [
           {
             name: "oracle",
-            type: "core::starknet::contract_address::ContractAddress",
+            type: "core::stellar::contract_address::ContractAddress",
           },
         ],
         outputs: [],
@@ -1264,7 +1264,7 @@ export default [
         inputs: [],
         outputs: [
           {
-            type: "core::starknet::contract_address::ContractAddress",
+            type: "core::stellar::contract_address::ContractAddress",
           },
         ],
         state_mutability: "view",
@@ -1318,7 +1318,7 @@ export default [
         inputs: [
           {
             name: "token_address",
-            type: "core::starknet::contract_address::ContractAddress",
+            type: "core::stellar::contract_address::ContractAddress",
           },
         ],
         outputs: [],
@@ -1350,7 +1350,7 @@ export default [
           },
           {
             name: "recipient",
-            type: "core::starknet::contract_address::ContractAddress",
+            type: "core::stellar::contract_address::ContractAddress",
           },
         ],
         outputs: [],
@@ -1370,7 +1370,7 @@ export default [
           },
           {
             name: "recipient",
-            type: "core::starknet::contract_address::ContractAddress",
+            type: "core::stellar::contract_address::ContractAddress",
           },
         ],
         outputs: [],
@@ -1386,7 +1386,7 @@ export default [
           },
           {
             name: "token_address",
-            type: "core::starknet::contract_address::ContractAddress",
+            type: "core::stellar::contract_address::ContractAddress",
           },
         ],
         outputs: [],
@@ -1412,65 +1412,65 @@ export default [
     inputs: [
       {
         name: "admin",
-        type: "core::starknet::contract_address::ContractAddress",
+        type: "core::stellar::contract_address::ContractAddress",
       },
       {
         name: "fee_recipient",
-        type: "core::starknet::contract_address::ContractAddress",
+        type: "core::stellar::contract_address::ContractAddress",
       },
       {
         name: "pragma_oracle",
-        type: "core::starknet::contract_address::ContractAddress",
+        type: "core::stellar::contract_address::ContractAddress",
       },
       {
         name: "betting_token",
-        type: "core::starknet::contract_address::ContractAddress",
+        type: "core::stellar::contract_address::ContractAddress",
       },
     ],
   },
   {
     kind: "struct",
-    name: "stakcast::prediction::ModeratorAdded",
+    name: "kairos::prediction::ModeratorAdded",
     type: "event",
     members: [
       {
         kind: "data",
         name: "moderator",
-        type: "core::starknet::contract_address::ContractAddress",
+        type: "core::stellar::contract_address::ContractAddress",
       },
       {
         kind: "data",
         name: "added_by",
-        type: "core::starknet::contract_address::ContractAddress",
+        type: "core::stellar::contract_address::ContractAddress",
       },
     ],
   },
   {
     kind: "struct",
-    name: "stakcast::prediction::ModeratorRemoved",
+    name: "kairos::prediction::ModeratorRemoved",
     type: "event",
     members: [
       {
         kind: "data",
         name: "moderator",
-        type: "core::starknet::contract_address::ContractAddress",
+        type: "core::stellar::contract_address::ContractAddress",
       },
       {
         kind: "data",
         name: "removed_by",
-        type: "core::starknet::contract_address::ContractAddress",
+        type: "core::stellar::contract_address::ContractAddress",
       },
     ],
   },
   {
     kind: "struct",
-    name: "stakcast::prediction::EmergencyPaused",
+    name: "kairos::prediction::EmergencyPaused",
     type: "event",
     members: [
       {
         kind: "data",
         name: "paused_by",
-        type: "core::starknet::contract_address::ContractAddress",
+        type: "core::stellar::contract_address::ContractAddress",
       },
       {
         kind: "data",
@@ -1481,7 +1481,7 @@ export default [
   },
   {
     kind: "struct",
-    name: "stakcast::prediction::MarketCreated",
+    name: "kairos::prediction::MarketCreated",
     type: "event",
     members: [
       {
@@ -1492,7 +1492,7 @@ export default [
       {
         kind: "data",
         name: "creator",
-        type: "core::starknet::contract_address::ContractAddress",
+        type: "core::stellar::contract_address::ContractAddress",
       },
       {
         kind: "data",
@@ -1503,7 +1503,7 @@ export default [
   },
   {
     kind: "struct",
-    name: "stakcast::prediction::MarketResolved",
+    name: "kairos::prediction::MarketResolved",
     type: "event",
     members: [
       {
@@ -1514,7 +1514,7 @@ export default [
       {
         kind: "data",
         name: "resolver",
-        type: "core::starknet::contract_address::ContractAddress",
+        type: "core::stellar::contract_address::ContractAddress",
       },
       {
         kind: "data",
@@ -1525,7 +1525,7 @@ export default [
   },
   {
     kind: "struct",
-    name: "stakcast::prediction::WagerPlaced",
+    name: "kairos::prediction::WagerPlaced",
     type: "event",
     members: [
       {
@@ -1536,7 +1536,7 @@ export default [
       {
         kind: "data",
         name: "user",
-        type: "core::starknet::contract_address::ContractAddress",
+        type: "core::stellar::contract_address::ContractAddress",
       },
       {
         kind: "data",
@@ -1567,7 +1567,7 @@ export default [
   },
   {
     kind: "struct",
-    name: "stakcast::prediction::FeesCollected",
+    name: "kairos::prediction::FeesCollected",
     type: "event",
     members: [
       {
@@ -1583,13 +1583,13 @@ export default [
       {
         kind: "data",
         name: "fee_recipient",
-        type: "core::starknet::contract_address::ContractAddress",
+        type: "core::stellar::contract_address::ContractAddress",
       },
     ],
   },
   {
     kind: "struct",
-    name: "stakcast::prediction::WinningsCollected",
+    name: "kairos::prediction::WinningsCollected",
     type: "event",
     members: [
       {
@@ -1600,7 +1600,7 @@ export default [
       {
         kind: "data",
         name: "user",
-        type: "core::starknet::contract_address::ContractAddress",
+        type: "core::stellar::contract_address::ContractAddress",
       },
       {
         kind: "data",
@@ -1616,7 +1616,7 @@ export default [
   },
   {
     kind: "struct",
-    name: "stakcast::prediction::BetPlaced",
+    name: "kairos::prediction::BetPlaced",
     type: "event",
     members: [
       {
@@ -1627,7 +1627,7 @@ export default [
       {
         kind: "data",
         name: "user",
-        type: "core::starknet::contract_address::ContractAddress",
+        type: "core::stellar::contract_address::ContractAddress",
       },
       {
         kind: "data",
@@ -1643,53 +1643,53 @@ export default [
   },
   {
     kind: "enum",
-    name: "stakcast::prediction::PredictionHub::Event",
+    name: "kairos::prediction::PredictionHub::Event",
     type: "event",
     variants: [
       {
         kind: "nested",
         name: "ModeratorAdded",
-        type: "stakcast::prediction::ModeratorAdded",
+        type: "kairos::prediction::ModeratorAdded",
       },
       {
         kind: "nested",
         name: "ModeratorRemoved",
-        type: "stakcast::prediction::ModeratorRemoved",
+        type: "kairos::prediction::ModeratorRemoved",
       },
       {
         kind: "nested",
         name: "EmergencyPaused",
-        type: "stakcast::prediction::EmergencyPaused",
+        type: "kairos::prediction::EmergencyPaused",
       },
       {
         kind: "nested",
         name: "MarketCreated",
-        type: "stakcast::prediction::MarketCreated",
+        type: "kairos::prediction::MarketCreated",
       },
       {
         kind: "nested",
         name: "MarketResolved",
-        type: "stakcast::prediction::MarketResolved",
+        type: "kairos::prediction::MarketResolved",
       },
       {
         kind: "nested",
         name: "WagerPlaced",
-        type: "stakcast::prediction::WagerPlaced",
+        type: "kairos::prediction::WagerPlaced",
       },
       {
         kind: "nested",
         name: "FeesCollected",
-        type: "stakcast::prediction::FeesCollected",
+        type: "kairos::prediction::FeesCollected",
       },
       {
         kind: "nested",
         name: "WinningsCollected",
-        type: "stakcast::prediction::WinningsCollected",
+        type: "kairos::prediction::WinningsCollected",
       },
       {
         kind: "nested",
         name: "BetPlaced",
-        type: "stakcast::prediction::BetPlaced",
+        type: "kairos::prediction::BetPlaced",
       },
     ],
   },

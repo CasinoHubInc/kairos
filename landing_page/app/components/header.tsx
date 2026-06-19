@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 
 // import { Button } from "./ui/button";
 import { ExternalLink, Menu, X } from "lucide-react";
-import Image from "next/image";
 import ThemeToggle from "./theme-toggle";
 
 export function Header() {
@@ -33,12 +32,9 @@ export function Header() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Image
-              src="/stakcast-logo-2.png"
-              alt="stakcast logo"
-              height={150}
-              width={150}
-            />
+            <span className="text-2xl font-bold tracking-tight text-amber-500">
+              Kairos
+            </span>
           </div>
 
           <nav className="hidden md:flex items-center space-x-8">
@@ -55,13 +51,13 @@ export function Header() {
               Features
             </Link>
             <Link
-              href="https://www.stakcast.com/howitworks"
+              href="https://www.kairos.com/howitworks"
               className="text-sm font-medium text-slate-600 dark:text-slate-300 transition-colors duration-300 hover:text-slate-900 dark:hover:text-white"
             >
               How It Works
             </Link>
             <Link
-              href="https://www.stakcast.com/"
+              href="https://www.kairos.com/"
               className="text-sm font-medium text-slate-600 dark:text-slate-300 transition-colors duration-300 hover:text-slate-900 dark:hover:text-white flex items-center gap-1"
             >
               App <ExternalLink className="h-3 w-3" />
@@ -74,10 +70,10 @@ export function Header() {
               variant="ghost"
               className="transition-all duration-300 hover:-translate-y-0.5"
             >
-              {/* <Link href="https://www.stakcast.com/">Visit App</Link> */}
+              {/* <Link href="https://www.kairos.com/">Visit App</Link> */}
             </Button>
             <Button className="bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white border-0 dark:text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
-              <Link href="https://www.stakcast.com/">Get Started</Link>
+              <Link href="https://www.kairos.com/">Get Started</Link>
             </Button>
           </div>
 
@@ -116,14 +112,14 @@ export function Header() {
                 Features
               </Link>
               <Link
-                href="https://www.stakcast.com/howitworks"
+                href="https://www.kairos.com/howitworks"
                 className="text-sm font-medium text-slate-600 dark:text-slate-300 transition-colors duration-300 hover:text-slate-900 dark:hover:text-white p-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 How It Works
               </Link>
               <Link
-                href="https://www.stakcast.com/"
+                href="https://www.kairos.com/"
                 className="text-sm font-medium text-slate-600 dark:text-slate-300 transition-colors duration-300 hover:text-slate-900 dark:hover:text-white p-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center gap-1"
                 onClick={() => setMobileMenuOpen(false)}
               >
@@ -131,7 +127,7 @@ export function Header() {
               </Link>
               <div className="pt-2 flex flex-col gap-2">
                 <Button className="w-full bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white">
-                  <Link href="https://www.stakcast.com/">Get Started</Link>
+                  <Link href="https://www.kairos.com/">Get Started</Link>
                 </Button>
               </div>
               <ThemeToggle />

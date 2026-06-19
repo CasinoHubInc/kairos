@@ -1,11 +1,11 @@
 {
-  "generator": "starknet-events-beta",
+  "generator": "stellar-events-beta",
   "state": {
-    "name": "stakcast",
-    "chainName": "starknet-testnet",
+    "name": "kairos",
+    "chainName": "stellar-testnet",
     "contracts": [
       {
-        "name": "stakcast",
+        "name": "kairos",
         "address": "0x02a3cb3bbbe186b59ba4ee6ce1227c284043be42dc46e84115e4587754a89c04",
         "initialBlock": 716387,
         "aliases": [],
@@ -13,7 +13,7 @@
           {
             "type": "impl",
             "name": "PredictionMarketImp",
-            "interface_name": "stakcast::interface::IPredictionMarket"
+            "interface_name": "kairos::interface::IPredictionMarket"
           },
           {
             "type": "struct",
@@ -49,11 +49,11 @@
           },
           {
             "type": "struct",
-            "name": "stakcast::interface::Market",
+            "name": "kairos::interface::Market",
             "members": [
               {
                 "name": "creator",
-                "type": "core::starknet::contract_address::ContractAddress"
+                "type": "core::stellar::contract_address::ContractAddress"
               },
               {
                 "name": "title",
@@ -97,13 +97,13 @@
               },
               {
                 "name": "validator",
-                "type": "core::starknet::contract_address::ContractAddress"
+                "type": "core::stellar::contract_address::ContractAddress"
               }
             ]
           },
           {
             "type": "enum",
-            "name": "stakcast::interface::MarketStatus",
+            "name": "kairos::interface::MarketStatus",
             "variants": [
               {
                 "name": "Active",
@@ -129,7 +129,7 @@
           },
           {
             "type": "struct",
-            "name": "stakcast::interface::MarketOutcome",
+            "name": "kairos::interface::MarketOutcome",
             "members": [
               {
                 "name": "winning_outcome",
@@ -143,11 +143,11 @@
           },
           {
             "type": "enum",
-            "name": "core::option::Option::\u003cstakcast::interface::MarketOutcome\u003e",
+            "name": "core::option::Option::\u003ckairos::interface::MarketOutcome\u003e",
             "variants": [
               {
                 "name": "Some",
-                "type": "stakcast::interface::MarketOutcome"
+                "type": "kairos::interface::MarketOutcome"
               },
               {
                 "name": "None",
@@ -157,19 +157,19 @@
           },
           {
             "type": "struct",
-            "name": "stakcast::interface::MarketDetails",
+            "name": "kairos::interface::MarketDetails",
             "members": [
               {
                 "name": "market",
-                "type": "stakcast::interface::Market"
+                "type": "kairos::interface::Market"
               },
               {
                 "name": "status",
-                "type": "stakcast::interface::MarketStatus"
+                "type": "kairos::interface::MarketStatus"
               },
               {
                 "name": "outcome",
-                "type": "core::option::Option::\u003cstakcast::interface::MarketOutcome\u003e"
+                "type": "core::option::Option::\u003ckairos::interface::MarketOutcome\u003e"
               }
             ]
           },
@@ -189,7 +189,7 @@
           },
           {
             "type": "struct",
-            "name": "stakcast::interface::Position",
+            "name": "kairos::interface::Position",
             "members": [
               {
                 "name": "amount",
@@ -207,7 +207,7 @@
           },
           {
             "type": "interface",
-            "name": "stakcast::interface::IPredictionMarket",
+            "name": "kairos::interface::IPredictionMarket",
             "items": [
               {
                 "type": "function",
@@ -296,7 +296,7 @@
                 ],
                 "outputs": [
                   {
-                    "type": "stakcast::interface::MarketDetails"
+                    "type": "kairos::interface::MarketDetails"
                   }
                 ],
                 "state_mutability": "view"
@@ -307,7 +307,7 @@
                 "inputs": [
                   {
                     "name": "user",
-                    "type": "core::starknet::contract_address::ContractAddress"
+                    "type": "core::stellar::contract_address::ContractAddress"
                   },
                   {
                     "name": "market_id",
@@ -316,7 +316,7 @@
                 ],
                 "outputs": [
                   {
-                    "type": "stakcast::interface::Position"
+                    "type": "kairos::interface::Position"
                   }
                 ],
                 "state_mutability": "view"
@@ -343,7 +343,7 @@
                 "inputs": [],
                 "outputs": [
                   {
-                    "type": "core::starknet::contract_address::ContractAddress"
+                    "type": "core::stellar::contract_address::ContractAddress"
                   }
                 ],
                 "state_mutability": "view"
@@ -418,7 +418,7 @@
                 "inputs": [
                   {
                     "name": "market_validator",
-                    "type": "core::starknet::contract_address::ContractAddress"
+                    "type": "core::stellar::contract_address::ContractAddress"
                   }
                 ],
                 "outputs": [],
@@ -432,11 +432,11 @@
             "inputs": [
               {
                 "name": "stake_token_address",
-                "type": "core::starknet::contract_address::ContractAddress"
+                "type": "core::stellar::contract_address::ContractAddress"
               },
               {
                 "name": "fee_collector",
-                "type": "core::starknet::contract_address::ContractAddress"
+                "type": "core::stellar::contract_address::ContractAddress"
               },
               {
                 "name": "platform_fee",
@@ -444,13 +444,13 @@
               },
               {
                 "name": "market_validator_address",
-                "type": "core::starknet::contract_address::ContractAddress"
+                "type": "core::stellar::contract_address::ContractAddress"
               }
             ]
           },
           {
             "type": "event",
-            "name": "stakcast::prediction::PredictionMarket::MarketCreated",
+            "name": "kairos::prediction::PredictionMarket::MarketCreated",
             "kind": "struct",
             "members": [
               {
@@ -460,7 +460,7 @@
               },
               {
                 "name": "creator",
-                "type": "core::starknet::contract_address::ContractAddress",
+                "type": "core::stellar::contract_address::ContractAddress",
                 "kind": "data"
               },
               {
@@ -482,7 +482,7 @@
           },
           {
             "type": "event",
-            "name": "stakcast::prediction::PredictionMarket::PositionTaken",
+            "name": "kairos::prediction::PredictionMarket::PositionTaken",
             "kind": "struct",
             "members": [
               {
@@ -492,7 +492,7 @@
               },
               {
                 "name": "user",
-                "type": "core::starknet::contract_address::ContractAddress",
+                "type": "core::stellar::contract_address::ContractAddress",
                 "kind": "data"
               },
               {
@@ -509,7 +509,7 @@
           },
           {
             "type": "event",
-            "name": "stakcast::prediction::PredictionMarket::MarketResolved",
+            "name": "kairos::prediction::PredictionMarket::MarketResolved",
             "kind": "struct",
             "members": [
               {
@@ -524,7 +524,7 @@
               },
               {
                 "name": "resolver",
-                "type": "core::starknet::contract_address::ContractAddress",
+                "type": "core::stellar::contract_address::ContractAddress",
                 "kind": "data"
               },
               {
@@ -536,7 +536,7 @@
           },
           {
             "type": "event",
-            "name": "stakcast::prediction::PredictionMarket::WinningsClaimed",
+            "name": "kairos::prediction::PredictionMarket::WinningsClaimed",
             "kind": "struct",
             "members": [
               {
@@ -546,7 +546,7 @@
               },
               {
                 "name": "user",
-                "type": "core::starknet::contract_address::ContractAddress",
+                "type": "core::stellar::contract_address::ContractAddress",
                 "kind": "data"
               },
               {
@@ -558,7 +558,7 @@
           },
           {
             "type": "event",
-            "name": "stakcast::prediction::PredictionMarket::MarketDisputed",
+            "name": "kairos::prediction::PredictionMarket::MarketDisputed",
             "kind": "struct",
             "members": [
               {
@@ -568,7 +568,7 @@
               },
               {
                 "name": "disputer",
-                "type": "core::starknet::contract_address::ContractAddress",
+                "type": "core::stellar::contract_address::ContractAddress",
                 "kind": "data"
               },
               {
@@ -580,32 +580,32 @@
           },
           {
             "type": "event",
-            "name": "stakcast::prediction::PredictionMarket::Event",
+            "name": "kairos::prediction::PredictionMarket::Event",
             "kind": "enum",
             "variants": [
               {
                 "name": "MarketCreated",
-                "type": "stakcast::prediction::PredictionMarket::MarketCreated",
+                "type": "kairos::prediction::PredictionMarket::MarketCreated",
                 "kind": "nested"
               },
               {
                 "name": "PositionTaken",
-                "type": "stakcast::prediction::PredictionMarket::PositionTaken",
+                "type": "kairos::prediction::PredictionMarket::PositionTaken",
                 "kind": "nested"
               },
               {
                 "name": "MarketResolved",
-                "type": "stakcast::prediction::PredictionMarket::MarketResolved",
+                "type": "kairos::prediction::PredictionMarket::MarketResolved",
                 "kind": "nested"
               },
               {
                 "name": "WinningsClaimed",
-                "type": "stakcast::prediction::PredictionMarket::WinningsClaimed",
+                "type": "kairos::prediction::PredictionMarket::WinningsClaimed",
                 "kind": "nested"
               },
               {
                 "name": "MarketDisputed",
-                "type": "stakcast::prediction::PredictionMarket::MarketDisputed",
+                "type": "kairos::prediction::PredictionMarket::MarketDisputed",
                 "kind": "nested"
               }
             ]

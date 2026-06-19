@@ -1,67 +1,47 @@
-import { ARGENT_WEBWALLET_URL, CHAIN_ID } from "../constants/index"
-import {
-  isInArgentMobileAppBrowser,
-  ArgentMobileConnector,
-} from "starknetkit/argentMobile"
-import {
-  BraavosMobileConnector,
-  isInBraavosMobileAppBrowser,
-} from "starknetkit/braavosMobile"
-import { InjectedConnector } from "starknetkit/injected"
-import { WebWalletConnector } from "starknetkit/webwallet"
-import { getStarknet } from "@starknet-io/get-starknet-core"
+// TODO: install @stellar/freighter-api and implement Stellar wallet connection
+// Freighter is the primary browser wallet for Stellar (https://freighter.app)
+// Replace this entire file with Freighter-based wallet integration
 
-const isMobileDevice = () => {
-  if (typeof window === "undefined") {
-    return false
-  }
-  getStarknet()
-  // Primary method: User Agent + Touch support check
-  const userAgent = navigator.userAgent.toLowerCase()
-  const isMobileUA =
-    /android|webos|iphone|ipad|ipod|blackberry|windows phone/.test(userAgent)
-  const hasTouchSupport =
-    "ontouchstart" in window || navigator.maxTouchPoints > 0
+// TODO: import from @stellar/freighter-api
+// import {
+//   isConnected,
+//   getPublicKey,
+//   signTransaction,
+//   setAllowed,
+//   isAllowed,
+//   requestAccess,
+//   getNetwork,
+//   getNetworkDetails,
+// } from "@stellar/freighter-api";
 
-  // Backup method: Screen size
-  const isSmallScreen = window.innerWidth <= 768
+// TODO: check if Freighter extension is installed
+export const isFreighterInstalled = async (): Promise<boolean> => {
+  // TODO: return (await isConnected()).isConnected
+  return false;
+};
 
-  // Combine checks: Must match user agent AND (touch support OR small screen)
-  return isMobileUA && (hasTouchSupport || isSmallScreen)
-}
+// TODO: request wallet access and return the user's public key (G... format)
+export const connectFreighter = async (): Promise<string | null> => {
+  // TODO:
+  // const accessResult = await requestAccess();
+  // if (accessResult.error) return null;
+  // const keyResult = await getPublicKey();
+  // return keyResult.publicKey ?? null;
+  return null;
+};
 
-export const availableConnectors = () => {
-  if (isInArgentMobileAppBrowser()) {
-    console.log("ArgentMobileConnector")
-    return [
-      ArgentMobileConnector.init({
-        options: {
-           url: typeof window !== "undefined" ? window.location.hostname : "",
-          dappName: "Example dapp",
-          chainId: CHAIN_ID,
-        },
-      }),
-    ]
-  }
+// TODO: sign and submit a Soroban transaction XDR string via Freighter
+export const signWithFreighter = async (xdr: string, networkPassphrase: string): Promise<string | null> => {
+  // TODO:
+  // const result = await signTransaction(xdr, { networkPassphrase });
+  // return result.signedTxXdr ?? null;
+  return null;
+};
 
-  if (isInBraavosMobileAppBrowser()) {
-    return [BraavosMobileConnector.init({})]
-  }
-
-  return [
-    new InjectedConnector({ options: { id: "argentX" } }),
-    new InjectedConnector({ options: { id: "braavos" } }),
-    new InjectedConnector({ options: { id: "metamask" } }),
-    ArgentMobileConnector.init({
-      options: {
-         url: typeof window !== "undefined" ? window.location.hostname : "",
-        dappName: "Example dapp",
-        chainId: CHAIN_ID,
-      },
-    }),
-    isMobileDevice() ? BraavosMobileConnector.init({}) : null,
-    new WebWalletConnector({ url: ARGENT_WEBWALLET_URL, theme: "light" }),
-  ].filter((connector) => connector !== null)
-}
-
-export const connectors = availableConnectors()
+// TODO: get the currently connected network details from Freighter
+export const getFreighterNetwork = async () => {
+  // TODO:
+  // const result = await getNetworkDetails();
+  // return result;
+  return null;
+};

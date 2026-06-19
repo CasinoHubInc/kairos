@@ -4,14 +4,14 @@ export function HowItWorks() {
       number: "01",
       title: "Create Your Account",
       description:
-        "Sign up for StakCast in seconds.  and verify your identity to get started.",
+        "Sign up for Kairos in seconds.  and verify your identity to get started.",
       align: "right",
     },
     {
       number: "02",
-      title: "Deposit STRK Tokens",
+      title: "Deposit XLM Tokens",
       description:
-        "Fund your account with STRK tokens to start participating in prediction markets.",
+        "Fund your account with XLM tokens to start participating in prediction markets.",
       align: "left",
     },
     {
@@ -41,7 +41,7 @@ export function HowItWorks() {
     <section id="how-it-works" className="container mx-auto px-4 py-20">
       <div className="mb-16 text-center animate-on-scroll">
         <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-          How StakCast Works
+          How Kairos Works
         </h2>
         <p className="mx-auto max-w-2xl text-slate-600 dark:text-slate-300">
           A simple process to start predicting and earning rewards

@@ -9,12 +9,9 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 
 const manrope = Manrope({ variable: "--font-manrope", subsets: ["latin"] });
 export const metadata: Metadata = {
-  title: "Stakcast",
+  title: "Kairos",
   description:
-    "StakCast is a decentralized prediction platform where users can participate in prediction markets.",
-  icons: {
-    icon: "/logo.svg",
-  },
+    "Kairos is a decentralized prediction platform where users can participate in prediction markets.",
 };
 
 export default function RootLayout({

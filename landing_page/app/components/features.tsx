@@ -18,7 +18,7 @@ export function Features() {
       icon: <Shield className="h-6 w-6" />,
       title: "Secure Staking",
       description:
-        "Your STRK tokens will be securely locked in smart contracts during predictions. Advanced security protocols protect your assets.",
+        "Your XLM tokens will be securely locked in smart contracts during predictions. Advanced security protocols protect your assets.",
     },
     {
       icon: <Zap className="h-6 w-6" />,
@@ -44,7 +44,7 @@ export function Features() {
     <section id="features" className="container mx-auto px-4 py-20">
       <div className="mb-16 text-center animate-on-scroll">
         <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-          Why Choose StakCast
+          Why Choose Kairos
         </h2>
         <p className="mx-auto max-w-2xl text-slate-600 dark:text-slate-300">
           Our platform will offer unique advantages for prediction market

@@ -13,7 +13,7 @@ export function Footer() {
                   S
                 </div>
               </div>
-              <span className="text-xl font-bold">stakcast</span>
+              <span className="text-xl font-bold">kairos</span>
             </div>
             <p className="mt-4 text-sm text-muted-foreground">
               The future of prediction markets. Stake, predict, and earn rewards
@@ -36,7 +36,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="https://stakcast.com/howitworks"
+                  href="https://kairos.com/howitworks"
                   className="text-muted-foreground hover:text-foreground"
                 >
                   How It Works
@@ -44,7 +44,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="https://www.stakcast.com/"
+                  href="https://www.kairos.com/"
                   className="text-muted-foreground hover:text-foreground flex items-center gap-1"
                 >
                   App <ExternalLink className="h-3 w-3" />
@@ -120,7 +120,7 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between border-t pt-8 md:flex-row">
           <p className="text-sm text-muted-foreground">
-            © 2025 StakCast. All rights reserved.
+            © 2025 Kairos. All rights reserved.
           </p>
           <div className="mt-4 flex space-x-6 md:mt-0">
             <Link

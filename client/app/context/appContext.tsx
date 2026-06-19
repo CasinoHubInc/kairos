@@ -9,13 +9,13 @@ import {
   SetStateAction,
   Dispatch,
 } from "react";
-import { useAccount, useBalance, useContract } from "@starknet-react/core";
+import { useAccount, useBalance, useContract } from "@stellar-react/core";
 import { SessionAccountInterface } from "@argent/invisible-sdk";
 import {
   SKTokenAddress,
-  STRKTokenAddress,
+  XLMTokenAddress,
 } from "../components/utils/constants";
-import { AccountInterface } from "starknet";
+import { AccountInterface } from "stellar";
 import { Token } from "../components/sections/PurchaseSection";
 import erc20Abi from "../abis/token";
 
@@ -54,7 +54,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [connectionModeState, setConnectionModeState] = useState<
     "email" | "wallet"
   >(getInitialConnectionMode());
-  const [selectedToken, setSelectedToken] = useState<Token>("STRK");
+  const [selectedToken, setSelectedToken] = useState<Token>("XLM");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [tokenPrice, setTokenPrice] = useState<number | null>(null);
   const [skPrice, setSkPrice] = useState<number | null>(null);
@@ -65,7 +65,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const address = sessionAccount ? sessionAccount.address : walletAddress;
 
   const { data, isFetching } = useBalance({
-    token: STRKTokenAddress,
+    token: XLMTokenAddress,
     address: address as `0x${string}`,
   });
 
@@ -92,12 +92,12 @@ export function AppProvider({ children }: { children: ReactNode }) {
     async function fetchPrice() {
       try {
         const res = await fetch(
-          "https://api.coingecko.com/api/v3/simple/price?ids=starknet&vs_currencies=usd"
+          "https://api.coingecko.com/api/v3/simple/price?ids=stellar&vs_currencies=usd"
         );
         const data = await res.json();
-        setTokenPrice(data?.starknet?.usd ?? null);
+        setTokenPrice(data?.stellar?.usd ?? null);
       } catch (err) {
-        console.error("Failed to fetch STRK price in USD:", err);
+        console.error("Failed to fetch XLM price in USD:", err);
         setTokenPrice(null);
       }
     }

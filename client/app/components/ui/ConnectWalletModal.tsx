@@ -1,8 +1,8 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
-import { useConnect } from "@starknet-react/core";
-import { StarknetkitConnector, useStarknetkitConnectModal } from "starknetkit";
+import { useConnect } from "@stellar-react/core";
+import { StellarkitConnector, useStellarkitConnectModal } from "stellarkit";
 import { X, Wallet, Mail } from "lucide-react";
 import { useArgentSdk } from "../utils/invisible-sdk";
 import { useAppContext } from "@/app/context/appContext";
@@ -19,8 +19,8 @@ const WalletModal: React.FC<WalletModalProps> = ({ onClose }) => {
 
   const { connectAsync, connectors } = useConnect();
 
-  const { starknetkitConnectModal } = useStarknetkitConnectModal({
-    connectors: connectors as StarknetkitConnector[],
+  const { stellarkitConnectModal } = useStellarkitConnectModal({
+    connectors: connectors as StellarkitConnector[],
     modalTheme: "system",
   });
 
@@ -31,7 +31,7 @@ const WalletModal: React.FC<WalletModalProps> = ({ onClose }) => {
     setConnectionMode("wallet");
     try {
       setIsLoading(true);
-      const { connector } = await starknetkitConnectModal();
+      const { connector } = await stellarkitConnectModal();
       if (!connector) {
         toast.error("No wallet selected");
         return;

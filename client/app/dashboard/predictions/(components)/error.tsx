@@ -38,10 +38,10 @@ const ErrorPage: React.FC<ErrorPageProps> = ({ error }) => {
           <p>
             If the issue persists, please file a bug report at{" "}
             <a
-              href="mailto:contact@stakcast.com"
+              href="mailto:contact@kairos.com"
               className="text-blue-600 dark:text-blue-400 hover:underline"
             >
-              contact.stakcast.com
+              contact.kairos.com
             </a>
           </p>
         </div>

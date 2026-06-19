@@ -12,16 +12,16 @@ const HowItWorks: React.FC = () => {
           </h2>
           <p>
             For more information , contact us at{" "}
-            <a href="mailto:">contact@stakcast.com</a>
+            <a href="mailto:">contact@kairos.com</a>
           </p>
           <div className="w-16 h-px bg-black dark:bg-white"></div>
         </div>
 
         <div className="mb-24">
           <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
-            Stakcast is an onchain prediction market platform on Starknet where
+            Stakcast is an onchain prediction market platform on Stellar where
             users can trade on markets and earn rewards. Leveraging the power of
-            Starknet for scalability and security, Stakcast ensures seamless
+            Stellar for scalability and security, Stakcast ensures seamless
             user experiences while maintaining a trustless environment.
           </p>
           <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
@@ -68,15 +68,15 @@ const HowItWorks: React.FC = () => {
               <ul className="space-y-2 text-gray-600 dark:text-gray-400 mb-4">
                 <li>
                   <span className="font-medium text-black dark:text-white">
-                    STRK tokens
+                    XLM tokens
                   </span>{" "}
-                  — The native Starknet token
+                  — The native Stellar token
                 </li>
                 <li>
                   <span className="font-medium text-black dark:text-white">
                     SK tokens
                   </span>{" "}
-                  — Stakcast&apos;s native token minted on Starknet
+                  — Stakcast&apos;s native token minted on Stellar
                 </li>
                 <li>
                   <span className="font-medium text-black dark:text-white">
@@ -211,7 +211,7 @@ const HowItWorks: React.FC = () => {
                 <span className="font-medium text-black dark:text-white">
                   Web3 wallet
                 </span>{" "}
-                — Connect your existing Starknet wallet for full control and
+                — Connect your existing Stellar wallet for full control and
                 direct interaction with the protocol
               </li>
             </ul>

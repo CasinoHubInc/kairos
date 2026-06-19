@@ -1,12 +1,12 @@
-## StakCast Indexer Documentation
+## Kairos Indexer Documentation
 ### Overview
-This document provides a detailed overview of the StakCast indexer, including the changes made, how to use The Graph for querying indexed data, and the available GraphQL endpoints.
+This document provides a detailed overview of the Kairos indexer, including the changes made, how to use The Graph for querying indexed data, and the available GraphQL endpoints.
 
 ### How to Use The Graph
 
 1. Access the GraphQL Playground
    Open the GraphQL endpoint provided after deployment in your browser or a GraphQL client (e.g., GraphiQL).
-   Example endpoint: https://api.thegraph.com/subgraphs/name/your-username/stakcast
+   Example endpoint: https://api.thegraph.com/subgraphs/name/your-username/kairos
 2. Querying Data
    Use GraphQL queries to fetch data from the subgraph. Below are some examples:
 
@@ -53,7 +53,7 @@ This document provides a detailed overview of the StakCast indexer, including th
 
 ### Endpoints
 GraphQL Endpoint
-- URL: https://api.studio.thegraph.com/query/107462/stakcast/v0.0.1
+- URL: https://api.studio.thegraph.com/query/107462/kairos/v0.0.1
 
 - Use this endpoint to query indexed data using GraphQL.
 Setup and Maintenance
@@ -62,8 +62,8 @@ Setup and Maintenance
 - Clone the repository:
 
 ``` bash
-git clone https://github.com/your-username/stakcast
-cd indexer/stakcast/subgraph
+git clone https://github.com/your-username/kairos
+cd indexer/kairos/subgraph
 ```
 
 - Install dependencies
@@ -81,7 +81,7 @@ graph codegen && graph build
 - Deploy the subgraph:
 
 ```bash
-graph deploy --product hosted-service your-username/stakcast
+graph deploy --product hosted-service your-username/kairos
 ```
 
 2. Updating the Subgraph
@@ -91,7 +91,7 @@ graph deploy --product hosted-service your-username/stakcast
 
 ```bash
 graph codegen && graph build
-graph deploy --product hosted-service your-username/stakcast
+graph deploy --product hosted-service your-username/kairos
 ```
 
 

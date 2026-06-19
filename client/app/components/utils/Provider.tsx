@@ -1,18 +1,18 @@
 // "use client";
 // import React from "react";
 
-// import { sepolia, mainnet } from "@starknet-react/chains";
+// import { sepolia, mainnet } from "@stellar-react/chains";
 // import {
-//   StarknetConfig,
+//   StellarConfig,
 //   publicProvider,
 //   argent,
 //   braavos,
 //   useInjectedConnectors,
 //   voyager,
  
-// } from "@starknet-react/core";
+// } from "@stellar-react/core";
 
-// export function StarknetProvider({ children }: { children: React.ReactNode }) {
+// export function StellarProvider({ children }: { children: React.ReactNode }) {
  
 //   const { connectors } = useInjectedConnectors({
 
@@ -23,13 +23,13 @@
 
   
 //   return (
-//     <StarknetConfig
+//     <StellarConfig
 //       chains={[mainnet, sepolia]}
 //       provider={publicProvider()}
 //       connectors={connectors}
 //       explorer={voyager}
 //     >
 //       {children}
-//     </StarknetConfig>
+//     </StellarConfig>
 //   );
 // }

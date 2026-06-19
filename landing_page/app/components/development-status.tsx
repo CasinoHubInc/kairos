@@ -34,7 +34,7 @@ export function DevelopmentStatus() {
           size="sm"
           className="transition-all duration-300 hover:-translate-y-0.5 hover:shadow-sm"
         >
-          <Link href="https://www.stakcast.com/">
+          <Link href="https://www.kairos.com/">
             Visit App <ExternalLink className="ml-2 h-3 w-3" />
           </Link>
         </Button>
@@ -135,7 +135,7 @@ export function DevelopmentStatus() {
           Development Status
         </h2>
         <p className="mx-auto max-w-2xl text-slate-600 dark:text-slate-300">
-          We&apos;re working hard to bring StakCast to life. Here&apos;s our
+          We&apos;re working hard to bring Kairos to life. Here&apos;s our
           current progress.
         </p>
       </div>

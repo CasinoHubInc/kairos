@@ -36,7 +36,7 @@ export const useArgentSdk = () => {
         throw new Error("Argent Web Wallet failed to initialize");
       }
       const response = await argentWebWallet.requestConnection({
-        callbackData: "stakcast_connection",
+        callbackData: "kairos_connection",
         approvalRequests: [],
       });
 

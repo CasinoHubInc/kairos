@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { useContract } from "@starknet-react/core";
+import { useContract } from "@stellar-react/core";
 import abi from "@/app/abis/abi";
-import { STAKCAST_CONTRACT_ADDRESS } from "@/app/components/utils/constants";
+import { KAIROS_CONTRACT_ADDRESS } from "@/app/components/utils/constants";
 import { useAppContext } from "@/app/context/appContext";
 
-import { Uint256 } from "starknet";
+import { Uint256 } from "stellar";
 
 export interface MarketChoices {
   [key: number]: { label: string | bigint | number; id: number };
@@ -50,7 +50,7 @@ export const useUserPredictions = () => {
   const { address } = useAppContext();
   const { contract } = useContract({
     abi,
-    address: STAKCAST_CONTRACT_ADDRESS as "0x",
+    address: KAIROS_CONTRACT_ADDRESS as "0x",
   });
   const [predictions, setPredictions] = useState<UserPrediction[]>([]);
   const [loading, setLoading] = useState(true);

@@ -67,13 +67,13 @@ export function Hero() {
             size="lg"
             className="bg-gradient-to-r from-emerald-500 to-blue-500 hover:from-emerald-600 hover:to-blue-600 text-white border-0 dark:text-white transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
           >
-            <Link href="https://www.stakcast.com/">
+            <Link href="https://www.kairos.com/">
               Visit App
               <ArrowRight className="ml-2 h-4 w-4 animate-bounce-subtle" />
             </Link>
           </Button>
           <Link
-            href="https://stakcast.com/howitworks"
+            href="https://kairos.com/howitworks"
             className="flex justify-center items-center text-center px-4 py-2 rounded border border-slate-300 dark:border-slate-700 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-black dark:hover:text-white"
           >
             Learn More

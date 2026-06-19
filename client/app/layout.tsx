@@ -5,12 +5,12 @@ import { Manrope } from "next/font/google";
 import "./globals.css";
 import "primereact/resources/themes/lara-light-cyan/theme.css";
 
-// import { StarknetProvider } from "./components/utils/Provider";
+// import { StellarProvider } from "./components/utils/Provider";
 // import { AppProvider } from "./context/appContext";
 import { Suspense } from "react";
 
-import { StarknetConfig } from "@starknet-react/core";
-import { mainnet, sepolia } from "@starknet-react/chains";
+import { StellarConfig } from "@stellar-react/core";
+import { mainnet, sepolia } from "@stellar-react/chains";
 
 // import { connectors } from "@/components/utils/connectors";
 import "./globals.css";
@@ -22,11 +22,11 @@ const manrope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin"],
 });
-import { jsonRpcProvider } from "@starknet-react/core";
+import { jsonRpcProvider } from "@stellar-react/core";
 
 export const providers = jsonRpcProvider({
   rpc: () => ({
-    nodeUrl: "https://starknet-sepolia.public.blastapi.io",
+    nodeUrl: "https://stellar-sepolia.public.blastapi.io",
   }),
 });
 
@@ -57,7 +57,7 @@ export default function RootLayout({
             theme="dark"
             transition={Bounce}
           />
-          <StarknetConfig
+          <StellarConfig
             chains={chains}
             provider={providers}
             connectors={connectors}
@@ -66,7 +66,7 @@ export default function RootLayout({
               {" "}
               <ReconnectProvider>{children}</ReconnectProvider>
             </Providers>
-          </StarknetConfig>
+          </StellarConfig>
         </Suspense>
       </body>
     </html>

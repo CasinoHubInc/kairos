@@ -1,10 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
-import { useDisconnect } from "@starknet-react/core";
+import { useDisconnect } from "@stellar-react/core";
 import ThemeToggle from "../utils/ThemeToggle";
 import Categories from "../sections/Categories";
 
@@ -75,17 +74,12 @@ const Header = () => {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <div
-              className="flex-shrink-0 cursor-pointer flex items-center"
+              className="flex-shrink-0 cursor-pointer"
               onClick={() => router.push("/")}
             >
-              <Image
-                src="/stakcast-logo-2.png"
-                alt="Stakcast"
-                width={250}
-                height={250}
-                className="h-[5.5rem] w-auto"
-              />{" "}
-              {/* <span className="text-green-700 font-bold">Stakcast</span> */}
+              <span className="text-2xl font-bold tracking-tight text-amber-500">
+                Kairos
+              </span>
             </div>
 
             {/* Desktop Navigation */}

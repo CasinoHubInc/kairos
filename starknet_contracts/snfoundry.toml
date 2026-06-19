@@ -1,0 +1,4 @@
+[sncast.default]
+account = "kairos"
+accounts-file = "/Users/macbookprom1/.starknet_accounts/starknet_open_zeppelin_accounts.json"
+url = "https://starknet-sepolia.public.blastapi.io/rpc/v0_8"

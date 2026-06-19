@@ -29,7 +29,7 @@ export const config = {
 			host:process.env.POSTGRES_HOST || 'localhost',
 			username:process.env.POSTGRES_USERNAME || 'root',
 			password:process.env.POSTGRES_PASSWORD || '',
-			database:process.env.POSTGRES_DB_NAME || 'stakcast'
+			database:process.env.POSTGRES_DB_NAME || 'kairos'
 		}
 		// mongo_uri: getMongoUri() || "mongodb://localhost:27017/testdb",
 		

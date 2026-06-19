@@ -36,7 +36,7 @@ const BalanceAndPortfolio = () => {
                     SK Balance
                   </p>
                   <p className="text-xs text-slate-500 dark:text-slate-400">
-                    StarkNet Token
+                    Stellar Token
                   </p>
                 </div>
               </div>
@@ -52,10 +52,10 @@ const BalanceAndPortfolio = () => {
                 </div>
                 <div>
                   <p className="font-semibold text-slate-900 dark:text-white">
-                    STRK Balance
+                    XLM Balance
                   </p>
                   <p className="text-xs text-slate-500 dark:text-slate-400">
-                    Starknet Token
+                    Stellar Token
                   </p>
                 </div>
               </div>
@@ -124,7 +124,7 @@ const BalanceAndPortfolio = () => {
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
                 <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
-                  STRK Token
+                  XLM Token
                 </span>
               </div>
               <span className="text-sm font-semibold text-slate-900 dark:text-white">

@@ -26,14 +26,14 @@ const StakcastBanner: React.FC<StakcastBannerProps> = ({ className = "" }) => {
 
       {/* Content Container */}
       <div className="relative z-1 h-full flex flex-col justify-between p-8">
-        {/* Top Section - Logo and Starknet Badge */}
+        {/* Top Section - Logo and Stellar Badge */}
         <div className="flex items-start justify-between">
           <div className="flex items-center">
             <div className="relative w-20 h-20 mr-5 group">
               <div className="absolute inset-0 bg-white/20 rounded-2xl blur-sm group-hover:blur-none transition-all duration-300"></div>
               <div className="relative w-full h-full bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 flex items-center justify-center">
                 <Image
-                  src="/stakcast-logo-1.png"
+                  src="/kairos-logo-1.png"
                   alt="Stakcast Logo"
                   width={56}
                   height={56}
@@ -51,16 +51,16 @@ const StakcastBanner: React.FC<StakcastBannerProps> = ({ className = "" }) => {
             </div>
           </div>
 
-          {/* Starknet Badge */}
+          {/* Stellar Badge */}
           <div className="flex items-center bg-white/10 backdrop-blur-md rounded-full px-4 py-2 border border-white/20 hover:bg-white/20 transition-all duration-300">
             <div className="w-6 h-6 mr-2 relative">
-              {/* Starknet Logo Placeholder - you can replace with actual Starknet logo */}
+              {/* Stellar Logo Placeholder - you can replace with actual Stellar logo */}
               <div className="w-full h-full bg-gradient-to-br from-orange-400 to-red-500 rounded-full flex items-center justify-center">
                 <div className="w-3 h-3 bg-white rounded-sm transform rotate-45"></div>
               </div>
             </div>
             <span className="text-white text-sm font-semibold">
-              Powered by Starknet
+              Powered by Stellar
             </span>
           </div>
         </div>

@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useState } from "react";
-import { useContract, useSendTransaction } from "@starknet-react/core";
+import { useContract, useSendTransaction } from "@stellar-react/core";
 import abi from "@/app/abis/abi";
 import {
   SKTokenAddress,
-  STAKCAST_CONTRACT_ADDRESS,
-  STRKTokenAddress,
+  KAIROS_CONTRACT_ADDRESS,
+  XLMTokenAddress,
 } from "../components/utils/constants";
 import erc20Abi from "../abis/token";
-import { cairo, Call } from "starknet";
+import { cairo, Call } from "stellar";
 import { useAppContext } from "../context/appContext";
 import { toast } from "react-toastify";
 interface UsePurchaseReturn {
@@ -26,13 +26,13 @@ interface UsePurchaseReturn {
 export const usePurchase = (): UsePurchaseReturn => {
   const { contract } = useContract({
     abi,
-    address: STAKCAST_CONTRACT_ADDRESS as "0x",
+    address: KAIROS_CONTRACT_ADDRESS as "0x",
   });
   const { selectedToken } = useAppContext();
   const { contract: ercContract } = useContract({
     abi: erc20Abi,
     address:
-      selectedToken == "SK" ? (SKTokenAddress as "0x") : STRKTokenAddress,
+      selectedToken == "SK" ? (SKTokenAddress as "0x") : XLMTokenAddress,
   });
 
   const [calls, setCalls] = useState<Call[] | undefined>(undefined);
@@ -60,7 +60,7 @@ export const usePurchase = (): UsePurchaseReturn => {
      
       try {
         const tokenApproval = await ercContract.populate("approve", [
-          STAKCAST_CONTRACT_ADDRESS,
+          KAIROS_CONTRACT_ADDRESS,
           cairo.uint256(amount),
         ]);
 

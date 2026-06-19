@@ -20,8 +20,8 @@ Ensure you have the following installed:
 
 2. **Clone Your Fork**  
    ```bash
-   git clone https://github.com/gear5labs/StakCast.git
-   cd stakcast
+   git clone https://github.com/gear5labs/Kairos.git
+   cd kairos
    ```
 
 ---
@@ -118,7 +118,7 @@ snforge test
    ```
 
 2. **Create a Pull Request**  
-   - Go to [Pull Requests](https://github.com/gear5labs/StakCast.git/pulls).
+   - Go to [Pull Requests](https://github.com/gear5labs/Kairos.git/pulls).
    - Click "New Pull Request."
    - Provide a clear title and description.
 

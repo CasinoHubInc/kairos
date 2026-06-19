@@ -1,17 +1,17 @@
 "use client";
 import React from "react";
-import { useConnect } from "@starknet-react/core";
+import { useConnect } from "@stellar-react/core";
 // import { Button } from "@/components/ui/button";
 // import { useAppContext } from "@/app/context/appContext";
-// import { useAccount, useDisconnect } from "@starknet-react/core";
-import { StarknetkitConnector, useStarknetkitConnectModal } from "starknetkit";
+// import { useAccount, useDisconnect } from "@stellar-react/core";
+import { StellarkitConnector, useStellarkitConnectModal } from "stellarkit";
 import { toast } from "react-toastify";
 
 const WalletModal = () => {
   const { connectAsync, connectors } = useConnect();
 
-  const { starknetkitConnectModal } = useStarknetkitConnectModal({
-    connectors: connectors as StarknetkitConnector[],
+  const { stellarkitConnectModal } = useStellarkitConnectModal({
+    connectors: connectors as StellarkitConnector[],
     modalTheme: "system",
   });
   return (
@@ -23,7 +23,7 @@ const WalletModal = () => {
       <button
         className="w-full justify-center"
         onClick={async () => {
-          const { connector } = await starknetkitConnectModal();
+          const { connector } = await stellarkitConnectModal();
           if (!connector) {
             console.log("User rejected to connect");
             return;

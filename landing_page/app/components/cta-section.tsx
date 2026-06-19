@@ -19,14 +19,14 @@ export function CtaSection() {
             <p className="mb-6 max-w-2xl text-white/80">
               Join our beta and be among the first to experience the future of
               prediction markets. Visit our app today and help shape the future
-              of StakCast.
+              of Kairos.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
               <Button
                 size="lg"
                 className="bg-white text-slate-900 hover:bg-white/90 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
               >
-                <Link href="https://www.stakcast.com/">
+                <Link href="https://www.kairos.com/">
                   Visit App
                   <ChevronRight className="ml-2 h-4 w-4 animate-bounce-subtle" />
                 </Link>

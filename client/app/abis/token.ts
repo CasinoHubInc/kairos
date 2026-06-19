@@ -36,7 +36,7 @@ const erc20Abi = [
     inputs: [
       {
         name: "account",
-        type: "core::starknet::contract_address::ContractAddress",
+        type: "core::stellar::contract_address::ContractAddress",
       },
     ],
     outputs: [{ name: "balance", type: "Uint256" }],

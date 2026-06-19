@@ -46,9 +46,9 @@ For detailed setup instructions, refer to [GettingStarted.md](/docs/GettingStart
 ---
 
 ## ⚡ Working on the Cairo Smart Contracts
-Stakcast includes smart contracts written in [Cairo](https://cairo-lang.org/) for deployment on StarkNet. Follow these steps to contribute to the contract code:
+Stakcast includes smart contracts written in [Cairo](https://cairo-lang.org/) for deployment on Stellar. Follow these steps to contribute to the contract code:
 
-### 🔧 Setting Up Cairo & StarkNet Dev Environment
+### 🔧 Setting Up Cairo & Stellar Dev Environment
 1. **Install Scarb (Cairo's package manager)**  
    ```bash
    curl -L https://raw.githubusercontent.com/software-mansion/scarb/master/install.sh | bash
@@ -103,7 +103,7 @@ Husky will run pre-commit hooks to enforce formatting and linting.
    ```
 
 2. **Create a Pull Request**  
-   - Go to the [Pull Requests](https://github.com/gear5labs/StakCast.git/pulls) page.  
+   - Go to the [Pull Requests](https://github.com/gear5labs/Kairos.git/pulls) page.  
    - Click "New Pull Request."  
    - Provide a clear title and description.  
 
@@ -113,7 +113,7 @@ Husky will run pre-commit hooks to enforce formatting and linting.
 ---
 
 ## 🐛 Reporting Issues
-If you encounter a bug or have a feature request, please [open an issue](https://github.com/gear5labs/StakCast.git/issues). Your issue should include:
+If you encounter a bug or have a feature request, please [open an issue](https://github.com/gear5labs/Kairos.git/issues). Your issue should include:
 - A **clear description** of the problem or feature request.
 - **Why** the change is necessary.
 - Steps to reproduce the issue (if applicable).

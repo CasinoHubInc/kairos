@@ -20,7 +20,7 @@ interface PurchaseSectionProps {
   market?: Market;
 }
 
-export type Token = "STRK" | "SK";
+export type Token = "XLM" | "SK";
 
 const AVAILABLE_TOKENS: {
   value: Token;
@@ -30,17 +30,17 @@ const AVAILABLE_TOKENS: {
   color: string;
 }[] = [
   {
-    value: "STRK",
-    label: "Starknet Token",
-    symbol: "STRK",
-    logo: "/logos/starknet-logo.svg", // Add your actual logo path
+    value: "XLM",
+    label: "Stellar Token",
+    symbol: "XLM",
+    logo: "/logos/stellar-logo.svg", // Add your actual logo path
     color: "from-purple-500 to-blue-500",
   },
   {
     value: "SK",
     label: "Stakcast Token",
     symbol: "SK",
-    logo: "/stakcast-logo-1.pnleg", // Add your actual logo path
+    logo: "/kairos-logo-1.pnleg", // Add your actual logo path
     color: "from-green-500 to-emerald-500",
   },
 ];
@@ -74,7 +74,7 @@ const PurchaseSection = ({ market }: PurchaseSectionProps) => {
     const market_id = +market.market_id.toString(16);
     const choice_idx = selectedOption === "Yes" ? 0x1 : 0x0;
     const amount = (
-      selectedToken === "STRK"
+      selectedToken === "XLM"
         ? parseInt((units * pricePerUnit).toFixed(2))
         : parseInt((units * pricePerUnit * 10).toFixed(2))
     ) as number;
@@ -103,7 +103,7 @@ const PurchaseSection = ({ market }: PurchaseSectionProps) => {
   const inputValue = useMemo(() => {
     if (!optionPrice) return unitsToStake;
 
-    const isStrkToken = selectedToken === "STRK";
+    const isStrkToken = selectedToken === "XLM";
     const multiplier = isStrkToken ? 1 : 10;
 
     return (units * pricePerUnit * multiplier).toFixed(2);
