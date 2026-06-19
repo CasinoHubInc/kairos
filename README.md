@@ -1,5 +1,5 @@
 # ⚠ Attention Contributors  
-TELEGRAM: https://t.me/+AJ39q-QOXERmMzU0
+TELEGRAM:
 Before making any contributions, please review our **[Contributors Quick Start](docs/GettingStarted.md)** and  **[Contributing Guidelines](docs/CONTRIBUTING.md)**   to ensure compliance with our standards and best practices. This will help keep Kairos's development smooth and efficient.  
 
 Thank you for your support! 🚀  
