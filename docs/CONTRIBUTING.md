@@ -1,126 +1,131 @@
-# Contributing to Stakcast
+# Contributing to Kairos
 
-Thank you for your interest in contributing to Stakcast! 🚀  
-We welcome contributions of all kinds, whether it's fixing bugs, improving documentation, or adding new features.  
-Please follow this guide to ensure a smooth contribution process.
+Thank you for your interest in contributing to Kairos!
+We welcome contributions of all kinds — bug fixes, new features, documentation, and tests.
 
 ---
 
 ## Table of Contents
-1. [Code of Conduct](#code-of-conduct)  
-2. [Getting Started](#getting-started)  
-3. [Setting Up the Development Environment](#setting-up-the-development-environment)  
-4. [Working on the Cairo Smart Contracts](#working-on-the-cairo-smart-contracts)  
-5. [Making Changes](#making-changes)  
-6. [Submitting a Pull Request](#submitting-a-pull-request)  
-7. [Reporting Issues](#reporting-issues)  
+1. [Before You Start](#before-you-start)
+2. [Setting Up the Dev Environment](#setting-up-the-dev-environment)
+3. [Working on Soroban Smart Contracts](#working-on-soroban-smart-contracts)
+4. [Making Changes](#making-changes)
+5. [Submitting a Pull Request](#submitting-a-pull-request)
+6. [Reporting Issues](#reporting-issues)
 
 ---
 
-## 📜 Code of Conduct
-By contributing, you agree to have read our getting Started [Getting Started](/docs/GettingStarted.md).  
-Please read it before making any contributions.
+## Before You Start
+
+Read [GettingStarted.md](./GettingStarted.md) and make sure your local environment is running before writing any code.
+
+We use **pnpm workspaces** for package management and **Husky** for git hook enforcement.
 
 ---
 
-## 🔧 Getting Started
-Before contributing, ensure you have the following installed:
-- [Node.js](https://nodejs.org/)  
-- [Git](https://git-scm.com/)
-- A code editor (e.g., [VS Code](https://code.visualstudio.com/))
-- [Cairo Language](https://github.com/starkware-libs/cairo)
-- [pnpm](https://pnpm.io/)
+## Setting Up the Dev Environment
 
-We use **pnpm workspaces** for package management and **Husky** for git hooks enforcement.
+See [GettingStarted.md](./GettingStarted.md) for the full walkthrough. The short version:
 
-For detailed setup instructions, refer to [GettingStarted.md](/docs/GettingStarted.md).
-
----
-
-## ⚙️ Setting Up the Development Environment
-1. **Fork the Repository**  
-2. **Clone Your Fork**  
-3. **Install Dependencies**  
-4. **Start the Development Server**  
-   For detailed  instructions, refer to [GettingStarted.md](/docs/GettingStarted.md).
----
-
-## ⚡ Working on the Cairo Smart Contracts
-Stakcast includes smart contracts written in [Cairo](https://cairo-lang.org/) for deployment on Stellar. Follow these steps to contribute to the contract code:
-
-### 🔧 Setting Up Cairo & Stellar Dev Environment
-1. **Install Scarb (Cairo's package manager)**  
-   ```bash
-   curl -L https://raw.githubusercontent.com/software-mansion/scarb/master/install.sh | bash
-   ```
-2. **Verify Installation**  
-   ```bash
-   scarb --version
-   ```
-3. **Compile the Contracts**  
-   Navigate to the `contracts` folder and run:
-   ```bash
-   cd contracts
-   scarb build
-   ```
-4. **Run Tests**  
-   ```bash
-   snforge test
-   ```
+```bash
+git clone https://github.com/YOUR_USERNAME/kairos.git
+cd kairos
+pnpm install
+pnpm dev:client   # or dev:landing / dev:server
+```
 
 ---
 
-## 🛠 Making Changes
-1. **Create a Feature Branch**  
-   We use **feature branches** for all new changes. Please create one before making any modifications:
-   ```bash
-   git checkout -b feature-branch-name
-   ```
+## Working on Soroban Smart Contracts
 
-2. **Make Your Changes**  
-   - Write code, add tests if applicable, and update the documentation.
-   - Ensure your changes follow the project's coding style.
+Kairos contracts are written in **Rust** using the [Soroban SDK](https://soroban.stellar.org) and live in `stellar_contracts/`.
 
-3. **Run Tests**  
-   ```bash
-   pnpm test
-   ```
+### Setup
+```bash
+rustup target add wasm32-unknown-unknown
+cargo install --locked stellar-cli --features opt
+```
 
-4. **Commit Your Changes**  
-   ```bash
-   git add .
-   git commit -m "Describe your changes"
-   ```
+### Build
+```bash
+cd stellar_contracts
+cargo build --target wasm32-unknown-unknown --release
+```
 
-Husky will run pre-commit hooks to enforce formatting and linting.
+### Test
+```bash
+cargo test
+```
 
----
+### Module overview
 
-## 🔀 Submitting a Pull Request
-1. **Push Your Changes**  
-   ```bash
-   git push origin feature-branch-name
-   ```
+| File | Responsibility |
+|---|---|
+| `lib.rs` | Public contract API, delegates to modules |
+| `market.rs` | Market creation, resolution, queries |
+| `betting.rs` | AMM pricing, share purchases, claim payouts |
+| `admin.rs` | Pause controls, fees, oracle, emergency ops |
+| `events.rs` | Contract event emission helpers |
+| `types.rs` | All `#[contracttype]` structs, enums, storage keys |
 
-2. **Create a Pull Request**  
-   - Go to the [Pull Requests](https://github.com/gear5labs/Kairos.git/pulls) page.  
-   - Click "New Pull Request."  
-   - Provide a clear title and description.  
-
-3. **Wait for Review**  
-   A maintainer will review your pull request and provide feedback.
+Functions marked `todo!()` are open for contribution — pick one, implement it, write a test, open a PR.
 
 ---
 
-## 🐛 Reporting Issues
-If you encounter a bug or have a feature request, please [open an issue](https://github.com/gear5labs/Kairos.git/issues). Your issue should include:
-- A **clear description** of the problem or feature request.
-- **Why** the change is necessary.
-- Steps to reproduce the issue (if applicable).
-- Avoid unnecessary long, AI-generated descriptions—keep it concise and relevant.
-- When applying to an issue, mention your estimated **ETA**.
-- We expect a **draft PR** within **48 hours** of assignment, even if it's incomplete—this shows progress has started.
+## Making Changes
+
+1. **Create a branch** — always branch off `main`
+```bash
+git checkout -b feat/your-feature-name
+```
+
+Branch prefixes: `feat/`, `fix/`, `docs/`, `refactor/`, `test/`
+
+2. **Write your code** — match the style of surrounding code, no unnecessary abstractions.
+
+3. **Run tests**
+```bash
+pnpm test           # frontend/server tests
+cargo test          # contract tests (from stellar_contracts/)
+```
+
+4. **Commit**
+```bash
+git add .
+git commit -m "feat: describe your change"
+```
+
+Husky runs linting on commit — do not skip hooks with `--no-verify`.
 
 ---
 
-Thank you for contributing to Stakcast! 🎉
+## Submitting a Pull Request
+
+```bash
+git push origin feat/your-feature-name
+```
+
+Open a PR at [github.com/CasinoHubInc/kairos/pulls](https://github.com/CasinoHubInc/kairos/pulls):
+
+- Write a clear title and description
+- Reference the issue you're closing (`Closes #42`)
+- A **draft PR** is expected within **48 hours** of being assigned — even if incomplete
+- Wait for at least one maintainer approval before merging
+
+---
+
+## Reporting Issues
+
+Open an issue at [github.com/CasinoHubInc/kairos/issues](https://github.com/CasinoHubInc/kairos/issues).
+
+Include:
+- A clear description of the bug or feature request
+- Why the change is needed
+- Steps to reproduce (for bugs)
+- Your estimated ETA if you plan to fix it yourself
+
+Keep descriptions concise and specific.
+
+---
+
+Thank you for contributing to Kairos!

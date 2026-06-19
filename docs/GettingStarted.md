@@ -1,131 +1,144 @@
-# Getting Started with Stakcast
+# Getting Started with Kairos
 
-Welcome to Stakcast! This guide will walk you through setting up the project on your local machine.
-
----
-
-## 📌 Prerequisites
-Ensure you have the following installed:
-- [Node.js](https://nodejs.org/) 
-- [Git](https://git-scm.com/)
-- A code editor (e.g., [VS Code](https://code.visualstudio.com/))
-- [Scarb](https://github.com/software-mansion/scarb) (Cairo package manager)
-
+Welcome to Kairos! This guide walks you through setting up the project locally.
 
 ---
 
-## 🔥 Step 1: Clone the Repository
-1. **Fork the Repository**  
-   Click the "Fork" button at the top right of the repository page.
+## Prerequisites
 
-2. **Clone Your Fork**  
-   ```bash
-   git clone https://github.com/gear5labs/Kairos.git
-   cd kairos
-   ```
+| Tool | Version | Install |
+|---|---|---|
+| Node.js | ≥ 18 | https://nodejs.org |
+| pnpm | ≥ 8 | `npm install -g pnpm` |
+| Git | any | https://git-scm.com |
+| Rust | stable | https://rustup.rs |
+| Stellar CLI | latest | `cargo install --locked stellar-cli --features opt` |
+| VS Code | any | https://code.visualstudio.com (recommended) |
+
+After installing Rust, add the Soroban WASM target:
+```bash
+rustup target add wasm32-unknown-unknown
+```
 
 ---
 
-## 📦 Step 2: Install Dependencies
-Run the following command to install all required dependencies:
+## Step 1: Fork & Clone
+
+1. Click **Fork** at the top of the [Kairos repository](https://github.com/CasinoHubInc/kairos).
+
+2. Clone your fork:
+```bash
+git clone https://github.com/YOUR_USERNAME/kairos.git
+cd kairos
+```
+
+---
+
+## Step 2: Install Dependencies
+
 ```bash
 pnpm install
 ```
 
----
-
-## 🌍 Step 3: Set Up Environment Variables if exists
-Create a `.env` file in the root directory and add the necessary environment variables if env.example exists.  
-Refer to `.env.example` for guidance if exists.
-
-Example:
-```env
-NEXT_PUBLIC_API_URL=http://localhost:3000/api
-```
+This installs dependencies for all workspace packages (`client`, `landing_page`, `server`, `indexer`).
 
 ---
 
-## 🚀 Step 4: Start the Development Server
-Run the following command:
+## Step 3: Set Up Environment Variables
+
+Copy the example env files:
 ```bash
-pnpm dev:landing #for landing page
-pnpm dev:client #for client application
+cp server/.env.example server/.env
+cp client/.env.example client/.env.local
 ```
-Then, open `http://localhost:3000` in your browser.
+
+Fill in the values — see the [README](../README.md#2-environment-variables) for the full list.
 
 ---
 
-## 🔗 Step 5: Setting Up Cairo Smart Contracts
-1. **Install Scarb**  
-   ```bash
-   curl -L https://raw.githubusercontent.com/software-mansion/scarb/master/install.sh | bash
-   ```
-   Verify installation:
-   ```bash
-   scarb --version
-   ```
+## Step 4: Start the Development Servers
 
-2. **Navigate to the Contracts Directory**  
-   ```bash
-   cd contracts
-   ```
-
-3. **Build the Contracts**  
-   ```bash
-   scarb build
-   ```
-
-4. **Run Tests Using snforge**  
-   ```bash
-   snforge test
-   ```
-
-
-## ✅ Step 7: Running Tests (Optional)
-To ensure your setup is working correctly, run:
 ```bash
-pnpm test
+# Landing page — http://localhost:3000
+pnpm dev:landing
+
+# Client app — http://localhost:3001
+pnpm dev:client
+
+# API server — http://localhost:3678
+pnpm dev:server
 ```
 
-To test smart contracts, use:
+---
+
+## Step 5: Set Up Stellar Smart Contracts
+
+Contracts live in `stellar_contracts/` and are written in Rust using the Soroban SDK.
+
+### Build
 ```bash
-snforge test
+cd stellar_contracts
+cargo build --target wasm32-unknown-unknown --release
 ```
 
----
+### Test
+```bash
+cargo test
+```
 
-## 💡 Step 8: Making Changes
-1. **Create a New Branch**  
-   ```bash
-   git checkout -b feature-branch-name
-   ```
+### Deploy to testnet (optional)
+```bash
+stellar keys generate --global kairos-deployer --network testnet
+stellar keys fund kairos-deployer --network testnet
+stellar contract deploy \
+  --wasm target/wasm32-unknown-unknown/release/kairos_prediction_hub.wasm \
+  --source kairos-deployer \
+  --network testnet
+```
 
-2. **Make Your Changes**  
-   Write your code, add tests if necessary, and update documentation.
-
-3. **Commit Your Changes**  
-   ```bash
-   git add .
-   git commit -m "Describe your changes"
-   ```
-
----
-
-## 🔀 Step 9: Push & Submit a Pull Request
-1. **Push Your Changes**  
-   ```bash
-   git push origin feature-branch-name
-   ```
-
-2. **Create a Pull Request**  
-   - Go to [Pull Requests](https://github.com/gear5labs/Kairos.git/pulls).
-   - Click "New Pull Request."
-   - Provide a clear title and description.
+See the [README → Smart Contracts](../README.md#smart-contracts-soroban) for full deployment details.
 
 ---
 
-## ❓ Need Help?
-If you have any issues, feel free to  reach out to the maintainers.
+## Step 6: Install Freighter Wallet
 
-Happy coding! 🚀✨
+1. Install [Freighter](https://freighter.app) browser extension
+2. Create or import a Stellar account
+3. Switch to **Testnet** in Freighter settings
+4. Fund via [friendbot.stellar.org](https://friendbot.stellar.org)
+
+---
+
+## Step 7: Making Changes
+
+```bash
+# Create a branch
+git checkout -b feat/your-feature-name
+
+# Commit
+git add .
+git commit -m "feat: describe your change"
+```
+
+Husky pre-commit hooks run linting automatically — do not skip with `--no-verify`.
+
+---
+
+## Step 8: Push & Open a Pull Request
+
+```bash
+git push origin feat/your-feature-name
+```
+
+Open a PR at [github.com/CasinoHubInc/kairos/pulls](https://github.com/CasinoHubInc/kairos/pulls).
+A draft PR is expected within **48 hours** of being assigned an issue.
+
+---
+
+## Need Help?
+
+- Telegram: https://t.me/+AJ39q-QOXERmMzU0
+- GitHub Issues: https://github.com/CasinoHubInc/kairos/issues
+
+Happy coding!
 
